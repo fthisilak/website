@@ -1,0 +1,113 @@
+/* src/components/home/hero.css */
+.grid-animation {
+  pointer-events: none;
+  position: relative;
+}
+
+.grid-animation .el {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.3);
+}
+
+.grid-animation .el:nth-child(3n) {
+  width: 6px;
+  height: 6px;
+}
+
+.grid-animation .el:nth-child(5n) {
+  width: 3px;
+  height: 3px;
+}
+
+.grid-animation .el:nth-child(7n) {
+  width: 5px;
+  height: 5px;
+}
+
+/* Typing animation styles */
+.typing-container {
+  overflow: hidden;
+}
+
+.typing-text {
+  position: relative;
+  white-space: nowrap;
+}
+
+.typing-text .gradient-text {
+  background: linear-gradient(25deg, #eee, #333);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.typing-text .gradient-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 2px;
+  height: 100%;
+  background: #eee;
+  animation: cursor 1s step-end infinite;
+}
+
+.typing-text .gradient-text:first-child {
+  animation: type1 1.5s steps(90) forwards;
+  width: 0;
+}
+
+.typing-text .gradient-text:last-child {
+  animation: type2 1.5s steps(90) forwards;
+  animation-delay: 1.5s;
+  width: 0;
+}
+
+@keyframes type1 {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes type2 {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor {
+  50% { background: transparent; }
+}
+
+/* Optimize performance */
+.grid-animation {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Ensure text readability */
+h1, p {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-animation .el {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .grid-animation .el:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+  }
+}

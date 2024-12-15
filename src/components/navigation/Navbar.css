@@ -1,0 +1,22 @@
+/* src/components/navigation/Navbar.css */
+.floating-dock-enter {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.floating-dock-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.floating-dock-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.floating-dock-exit-active {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
